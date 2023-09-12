@@ -15,8 +15,6 @@ lazy_static! {
     };
 }
 
-
-
 #[volo::main]
 async fn main() {
     tracing_subscriber::fmt::init();
@@ -64,6 +62,10 @@ async fn main() {
                 command: RedisCommand::Publish,
             }
         }
+        "exit" => {
+            println!("Bye!");
+            return;
+        }
         _ => {
             panic!("unknown command");
         }
@@ -73,7 +75,7 @@ async fn main() {
     match resp {
         Ok(info) => {
             if info.flag {
-                println!("{:?}", info.res.unwrap());
+                println!("Success {:?}", info.res.unwrap());
             } else {
                 println!("Error {:?}", info.res);
             }
