@@ -52,13 +52,13 @@ impl volo_gen::volo::example::ItemService for S {
                     .remove(&_req.key.unwrap().into_string())
                 {
                     Some(_) => Ok(GetItemResponse {
-                        flag: false,
-                        res: Some("None".into()),
+                        flag: true,
+                        res: Some("OK".into()),
                     }),
 
                     None => Ok(GetItemResponse {
-                        flag: true,
-                        res: Some("OK".into()),
+                        flag: false,
+                        res: Some("None".into()),
                     }),
                 }
             }
