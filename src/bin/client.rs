@@ -77,7 +77,7 @@ async fn main() {
             if info.flag {
                 println!("Success {:?}", info.res.unwrap());
             } else {
-                println!("Error {:?}", info.res);
+                println!("Error {:?}", info.res.unwrap());
             }
         }
         Err(e) => {
